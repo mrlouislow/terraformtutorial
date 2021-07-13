@@ -12,13 +12,14 @@ terraform {
 provider "aws" {
   profile = "default"
   region  = "us-west-2"
+  access_key = var.awsaccess
+  secret_key = var.awssecret
 }
 
 resource "aws_instance" "app_server" {
   ami           = "ami-830c94e3"
   instance_type = "t2.micro"
-  access_key = var.awsaccess
-  secret_key = var.awssecret
+  
 
   tags = {
     Name = "ExampleAppServerInstance"
